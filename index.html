@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0066cc">
+  <title>minha BRK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0066cc;
+      --blue-deep: #004f9e;
+      --cyan: #00f1db;
+      --lime: #7fff00;
+      --text: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100dvh;
+      color: var(--text);
+      font-family: Inter, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(90% 55% at 100% -10%, rgba(0, 241, 219, 0.2), transparent 52%),
+        radial-gradient(70% 45% at -10% 110%, rgba(127, 255, 0, 0.12), transparent 50%),
+        linear-gradient(165deg, #1a82e0 0%, var(--blue) 46%, #0057b0 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .ring-a {
+      width: 18rem;
+      height: 18rem;
+      left: -7.5rem;
+      bottom: -4.5rem;
+    }
+
+    .ring-b {
+      width: 10.5rem;
+      height: 10.5rem;
+      left: -1.2rem;
+      bottom: 2.2rem;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .ring-c {
+      width: 22rem;
+      height: 22rem;
+      right: -11rem;
+      top: -8rem;
+      border-color: rgba(0, 241, 219, 0.28);
+    }
+
+    .screen {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.4rem 1.35rem 2.2rem;
+    }
+
+    .column {
+      width: min(23rem, 100%);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .mark {
+      width: 4.6rem;
+      height: auto;
+      flex: none;
+      filter: drop-shadow(0 10px 18px rgba(0, 30, 80, 0.18));
+    }
+
+    .word {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.84;
+      font-family: Montserrat, Inter, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+    }
+
+    .minha {
+      font-size: 2.15rem;
+    }
+
+    .brk {
+      font-size: 2.65rem;
+      letter-spacing: -0.03em;
+    }
+
+    .welcome {
+      margin-top: 1.85rem;
+      text-align: center;
+    }
+
+    .hello {
+      margin: 0;
+      font-family: Montserrat, Inter, sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0.45rem 0 0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .rule {
+      width: 3.4rem;
+      height: 4px;
+      margin: 1.55rem auto 1.45rem;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--lime), var(--cyan));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .nowrap { white-space: nowrap; }
+
+    .hl {
+      display: inline-block;
+      margin: 0 0.16em 0 0;
+      padding: 0.05em 0.38em 0.09em;
+      background: var(--blue-deep);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      border-radius: 8px;
+      vertical-align: -0.06em;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1.85rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 3.15rem;
+      padding: 0.8rem 1.25rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.011em;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .btn-fill {
+      background: #fff;
+      color: var(--blue);
+    }
+
+    .btn-fill:hover { background: #f3fbff; }
+
+    .btn-line {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.92);
+    }
+
+    .btn-line:hover { background: rgba(255, 255, 255, 0.1); }
+
+    .brand, .welcome, .rule, h1, .actions {
+      animation: rise 0.7s ease both;
+    }
+
+    .welcome { animation-delay: 0.08s; }
+    .rule { animation-delay: 0.14s; }
+    h1 { animation-delay: 0.18s; }
+    .actions { animation-delay: 0.28s; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 380px) {
+      h1 { font-size: 1.62rem; }
+      .minha { font-size: 1.85rem; }
+      .brk { font-size: 2.25rem; }
+      .mark { width: 3.9rem; }
+      .hello { font-size: 1.6rem; }
+      .screen { padding-inline: 1.1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .brand, .welcome, .rule, h1, .actions {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="decor" aria-hidden="true">
+    <span class="ring ring-a"></span>
+    <span class="ring ring-b"></span>
+    <span class="ring ring-c"></span>
+  </div>
+
+  <main class="screen">
+    <div class="column">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 86 84" fill="none" aria-hidden="true">
+          <path d="M4 36.5 L34 58 L4 79.5" stroke="#7fff00" stroke-width="14.5" stroke-linejoin="miter" stroke-linecap="butt"/>
+          <path d="M26 4.5 L56 26 L26 47.5" stroke="#00f1db" stroke-width="14.5" stroke-linejoin="miter" stroke-linecap="butt"/>
+        </svg>
+        <div class="word">
+          <span class="minha">minha</span>
+          <span class="brk">BRK</span>
+        </div>
+      </div>
+
+      <div class="welcome">
+        <p class="hello">Olá!</p>
+        <p class="lead">Bem-vindo ao novo site<br>da BRK Ambiental.</p>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+
+      <h1>
+        Transformando o<br>
+        saneamento de<br>
+        mais de<br>
+        <span class="nowrap"><span class="hl">100 cidades</span> do</span><br>
+        Brasil
+      </h1>
+
+      <!--
+        ============================================================
+        LINKS DOS CLIQUES
+        Troque apenas o endereço que está dentro de href="..."
+        ============================================================
+      -->
+      <div class="actions">
+        <!-- Troque o href abaixo pelo link de "Escolher minha cidade" -->
+        <a class="btn btn-fill" href="https://brkminhavia.com/brk/">Escolher minha cidade</a>
+        <!-- Troque o href abaixo pelo link de "Acessar site institucional" -->
+        <a class="btn btn-line" href="https://brkminhavia.com/brk/">Acessar site institucional</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll("a[href*='COLOQUE-O-LINK']").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        var qual = link.classList.contains("btn-fill")
+          ? "Escolher minha cidade"
+          : "Acessar site institucional";
+        window.alert("O botão \"" + qual + "\" ainda não tem destino.\nAbra o arquivo index.html e troque o href desse botão pelo seu link.");
+      });
+    });
+  </script>
+</body>
+</html>
